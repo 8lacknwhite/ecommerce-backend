@@ -24,7 +24,11 @@ public class Product {
     private String name;
     @Column(name = "PRICE")
     private double price;
-
+    @Lob
+    @Column(name="IMAGE", columnDefinition = "BLOB")
+    private byte[] image;
+    @Column(name = "TYPE")
+    private String type;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID",nullable = false)
     private Order order;
